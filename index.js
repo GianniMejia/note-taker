@@ -4,7 +4,7 @@ const fs = require("fs");
 const uuid = require("uuid");
 
 const app = express();
-
+const PORT = process.env.PORT || 8000; 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
@@ -60,5 +60,4 @@ app.get("*", (req, res) => {
     res.sendFile(__dirname + "/index.html");
 });
 
-const PORT = 8000;
 app.listen(PORT, () => console.log("server runnung at port:", PORT));
